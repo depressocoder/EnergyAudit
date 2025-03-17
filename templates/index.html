@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Audit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <button id="darkModeToggle">🌙 Toggle Dark Mode</button>
+    
+    <h1>Energy Audit Tool</h1>
+    <p>Enter appliances and their energy usage details to calculate consumption.</p>
+
+    <form id="auditForm">
+        <label>Electricity Cost Per kWh ($):</label>
+        <input type="number" id="cost_per_kwh" step="0.01" min="0.01" value="0.12" required>
+        <h3>Appliance List</h3>
+        <div id="applianceInputs"></div>
+        <button type="button" onclick="addAppliance()">+ Add Appliance</button>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <h2>Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Appliance</th>
+                <th>Number</th>
+                <th>Daily (kWh)</th>
+                <th>Annual (kWh)</th>
+                <th>Gap (kWh)</th>
+                <th>Efficiency (%)</th>
+            </tr>
+        </thead>
+        <tbody id="resultsTable"></tbody>
+    </table>
+
+    <canvas id="energyChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
+
+
+
